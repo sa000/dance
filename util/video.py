@@ -2,7 +2,6 @@
 from dataclasses import dataclass
 import tensorflow as tf
 import numpy as np 
-from model import  init_crop_region
 from typing import Tuple
 from util.helpers import to_gif
 from model import run_inference, draw_prediction_on_image, movenet, init_crop_region, determine_crop_region
@@ -47,7 +46,8 @@ class Video:
         #bar = display(progress(0, num_frames-1), display_id=True)
         #unpacked the config
         num_frames, image_height, image_width, crop_region = self.input_video_config['num_frames'], self.input_video_config['image_height'], self.input_video_config['image_width'], self.input_video_config['crop_region']
-        num_frames = 2
+        #FOR TESTING. FOR PRODUCTION, REMOVE THIS LINE
+        num_frames = 10
         for frame_idx in range(num_frames):
             keypoints_with_scores = run_inference(
                 movenet, self.input_video[frame_idx, :, :, :], crop_region,
