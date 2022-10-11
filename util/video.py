@@ -47,7 +47,6 @@ class Video:
         #unpacked the config
         num_frames, image_height, image_width, crop_region = self.input_video_config['num_frames'], self.input_video_config['image_height'], self.input_video_config['image_width'], self.input_video_config['crop_region']
         #FOR TESTING. FOR PRODUCTION, REMOVE THIS LINE
-        num_frames = 10
         for frame_idx in range(num_frames):
             keypoints_with_scores = run_inference(
                 movenet, self.input_video[frame_idx, :, :, :], crop_region,
@@ -67,4 +66,4 @@ class Video:
         '''
         Saves the output video to the output path
         '''
-        to_gif(self.output_video, fps = 30, filepath = output_path)
+        to_gif(self.output_video, fps = 10, filepath = output_path)

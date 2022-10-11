@@ -22,7 +22,6 @@ def calculate_angles(slopes1, slopes2):
     for i in range(17):
         for j in range(i+1,NUM_JOINTS):
             angles[i,j] = abs(angle(slopes1[i,j], slopes2[i,j]))
-    print("Finished Calculating Angles")
     return angles
     
 def create_slope_matrices(keypoints_list: np.ndarray ) -> np.ndarray:

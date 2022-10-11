@@ -6,7 +6,7 @@ import io
 from PIL import Image, ImageDraw, ImageSequence,ImageFont
 
 
-def to_gif(images, filepath, fps=30):
+def to_gif(images, filepath, fps=10):
     """Converts image sequence (4D numpy array) to gif."""
     imageio.mimsave(filepath, images, fps=fps)
     print("Gif saved to {}".format(filepath))
